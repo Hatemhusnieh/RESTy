@@ -11,7 +11,6 @@
 
 ## Deploy, Run and Test
 
-- [deployed link]()
 - [Pull Request](https://github.com/Hatemhusnieh/RESTy/pull/1)
 - [SandBox](https://codesandbox.io/s/magical-golick-4x3cu?file=/resty/src/App.js)
 
