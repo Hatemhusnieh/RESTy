@@ -1,65 +1,113 @@
-import React from 'react';
+import { useState } from 'react';
 import './form.scss';
 
-// class Form extends React.Component {
-//   handleSubmit = (e) => {
-//     e.preventDefault();
-//     const formData = {
-//       method: 'GET',
-//       url: 'https://pokeapi.co/api/v2/pokemon',
-//     };
-//     this.props.handleApiCall(formData);
-//   };
-
-//   render() {
-//     return (
-//       <>
-//         <form onSubmit={this.handleSubmit}>
-//           <label>
-//             <span>URL: </span>
-//             <input name="url" type="text" />
-//             <button type="submit">GO!</button>
-//           </label>
-//           <label className="methods">
-//             <span id="get">GET</span>
-//             <span id="post">POST</span>
-//             <span id="put">PUT</span>
-//             <span id="delete">DELETE</span>
-//           </label>
-//         </form>
-//       </>
-//     );
-//   }
-// }
-
-// export default Form;
-function Form({ handleApiCall }) {
-  function handleSubmit(e) {
+function Form(props) {
+  const [method, setMethod] = useState('GET');
+  async function handleSubmit(e) {
     e.preventDefault();
-    const formData = {
-      method: 'GET',
-      url: 'https://pokeapi.co/api/v2/pokemon',
-    };
-    handleApiCall(formData);
+    // if (method === 'GET') {
+    try {
+      props.handleLoading(true);
+      const res = await fetch(`${e.target.url.value}`);
+      const data = await res.json();
+      const formData = {
+        method: method,
+        url: e.target.url.value,
+      };
+      props.handleLoading(false);
+      props.handleApiCall(formData, data.results);
+    } catch (e) {
+      console.error(e);
+    }
   }
+  // }
 
-  return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <span>URL: </span>
-          <input name="url" type="text" />
-          <button type="submit">GO!</button>
-        </label>
-        <label className="methods">
-          <span id="get">GET</span>
-          <span id="post">POST</span>
-          <span id="put">PUT</span>
-          <span id="delete">DELETE</span>
-        </label>
-      </form>
-    </>
-  );
+  // if (method === 'POST') {
+  //   // return a from for creating and saving into database
+  // }
+  // if (method === 'PUT') {
+  //   // return a from for updating instance in database
+  // }
+  // if (method === 'DELETE') {
+  //   // delete from database
+  // }
+
+  if (method === 'GET' || method === 'DELETE') {
+    // console.log(method);
+    return (
+      <>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <span>URL: </span>
+            <input name="url" type="text" />
+            <button type="submit">GO!</button>
+          </label>
+          <label className="methods">
+            <span id="get" onClick={() => setMethod('GET')}>
+              GET
+            </span>
+            <span id="post" onClick={() => setMethod('POST')}>
+              POST
+            </span>
+            <span id="put" onClick={() => setMethod('PUT')}>
+              PUT
+            </span>
+            <span id="delete" onClick={() => setMethod('DELETE')}>
+              DELETE
+            </span>
+          </label>
+        </form>
+      </>
+    );
+  }
+  if (method === 'POST') {
+    // console.log(method);
+    return (
+      <>
+        <h3 style={{ color: 'red', margin: 'auto' }}>POST is under construction</h3>;
+        <form onSubmit={handleSubmit}>
+          <label className="methods">
+            <span id="get" onClick={() => setMethod('GET')}>
+              GET
+            </span>
+            <span id="post" onClick={() => setMethod('POST')}>
+              POST
+            </span>
+            <span id="put" onClick={() => setMethod('PUT')}>
+              PUT
+            </span>
+            <span id="delete" onClick={() => setMethod('DELETE')}>
+              DELETE
+            </span>
+          </label>
+        </form>
+      </>
+    );
+  }
+  if (method === 'PUT') {
+    // console.log(method);
+    return (
+      <>
+        <h3 style={{ color: 'red', margin: 'auto' }}>PUT is under construction</h3>;
+        <form onSubmit={handleSubmit}>
+          <label className="methods">
+            <span id="get" onClick={() => setMethod('GET')}>
+              GET
+            </span>
+            <span id="post" onClick={() => setMethod('POST')}>
+              POST
+            </span>
+            <span id="put" onClick={() => setMethod('PUT')}>
+              PUT
+            </span>
+            <span id="delete" onClick={() => setMethod('DELETE')}>
+              DELETE
+            </span>
+          </label>
+        </form>
+      </>
+    );
+  }
 }
 
 export default Form;
