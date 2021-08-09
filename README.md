@@ -29,8 +29,8 @@
 ## Deploy, Run and Test - Version 1.1.0
 
 - [Deployed Link]()
-- [Pull Request]()
-- [SandBox]()
+- [Pull Request](https://github.com/Hatemhusnieh/RESTy/pull/2)
+- [SandBox](https://codesandbox.io/s/loving-dust-mc8dp)
 
 ### Setup
 
