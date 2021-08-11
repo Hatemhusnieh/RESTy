@@ -41,3 +41,19 @@
 ### UML:
 
 ![uml](resources/useState-Hook.jpg)
+
+## Deploy, Run and Test - Version 1.2.0
+
+- [Deployed Link](https://resty-hatem.netlify.app/)
+- [Pull Request]()
+- [SandBox]()
+
+### Setup
+
+#### Running the app
+
+- `npm start`
+
+### UML:
+
+![uml](resources/useState-Hook.jpg)

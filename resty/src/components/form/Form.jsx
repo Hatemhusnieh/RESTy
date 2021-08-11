@@ -2,23 +2,16 @@ import { useState } from 'react';
 import './form.scss';
 
 function Form(props) {
-  const [method, setMethod] = useState('GET');
-  async function handleSubmit(e) {
+  const [method, setMethod] = useState('get');
+
+  function handleSubmit(e) {
     e.preventDefault();
     // if (method === 'GET') {
-    if (e.target.url.value) {
-      const formData = {
-        method: method,
-        url: e.target.url.value,
-      };
-      props.handleApiCall(formData);
-    } else {
-      const formData = {
-        method: 'GET',
-        url: 'http://fakethings.com/',
-      };
-      props.handleApiCall(formData);
-    }
+    const formData = {
+      method: method,
+      url: e.target.url.value,
+    };
+    props.handleApiCall(formData);
   }
   // }
 
@@ -32,7 +25,7 @@ function Form(props) {
   //   // delete from database
   // }
 
-  if (method === 'GET' || method === 'DELETE') {
+  if (method === 'get' || method === 'delete') {
     // console.log(method);
     return (
       <>
@@ -43,16 +36,16 @@ function Form(props) {
             <button type="submit">GO!</button>
           </label>
           <label className="methods">
-            <span id="get" onClick={() => setMethod('GET')}>
+            <span id="get" onClick={() => setMethod('get')}>
               GET
             </span>
-            <span id="post" onClick={() => setMethod('POST')}>
+            <span id="post" onClick={() => setMethod('post')}>
               POST
             </span>
-            <span id="put" onClick={() => setMethod('PUT')}>
+            <span id="put" onClick={() => setMethod('put')}>
               PUT
             </span>
-            <span id="delete" onClick={() => setMethod('DELETE')}>
+            <span id="delete" onClick={() => setMethod('delete')}>
               DELETE
             </span>
           </label>
@@ -60,23 +53,24 @@ function Form(props) {
       </>
     );
   }
-  if (method === 'POST') {
+
+  if (method === 'post') {
     // console.log(method);
     return (
       <>
         <h3 style={{ color: 'red', margin: 'auto' }}>POST is under construction</h3>;
         <form onSubmit={handleSubmit}>
           <label className="methods">
-            <span id="get" onClick={() => setMethod('GET')}>
+            <span id="get" onClick={() => setMethod('get')}>
               GET
             </span>
-            <span id="post" onClick={() => setMethod('POST')}>
+            <span id="post" onClick={() => setMethod('post')}>
               POST
             </span>
-            <span id="put" onClick={() => setMethod('PUT')}>
+            <span id="put" onClick={() => setMethod('put')}>
               PUT
             </span>
-            <span id="delete" onClick={() => setMethod('DELETE')}>
+            <span id="delete" onClick={() => setMethod('delete')}>
               DELETE
             </span>
           </label>
@@ -84,23 +78,24 @@ function Form(props) {
       </>
     );
   }
-  if (method === 'PUT') {
+
+  if (method === 'put') {
     // console.log(method);
     return (
       <>
         <h3 style={{ color: 'red', margin: 'auto' }}>PUT is under construction</h3>;
         <form onSubmit={handleSubmit}>
           <label className="methods">
-            <span id="get" onClick={() => setMethod('GET')}>
+            <span id="get" onClick={() => setMethod('get')}>
               GET
             </span>
-            <span id="post" onClick={() => setMethod('POST')}>
+            <span id="post" onClick={() => setMethod('post')}>
               POST
             </span>
-            <span id="put" onClick={() => setMethod('PUT')}>
+            <span id="put" onClick={() => setMethod('put')}>
               PUT
             </span>
-            <span id="delete" onClick={() => setMethod('DELETE')}>
+            <span id="delete" onClick={() => setMethod('delete')}>
               DELETE
             </span>
           </label>
