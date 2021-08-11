@@ -28,7 +28,7 @@
 
 ## Deploy, Run and Test - Version 1.1.0
 
-- [Deployed Link]()
+- [Deployed Link](https://resty-hatem.netlify.app/)
 - [Pull Request](https://github.com/Hatemhusnieh/RESTy/pull/2)
 - [SandBox](https://codesandbox.io/s/loving-dust-mc8dp)
 
