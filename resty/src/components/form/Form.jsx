@@ -6,18 +6,18 @@ function Form(props) {
   async function handleSubmit(e) {
     e.preventDefault();
     // if (method === 'GET') {
-    try {
-      props.handleLoading(true);
-      const res = await fetch(`${e.target.url.value}`);
-      const data = await res.json();
+    if (e.target.url.value) {
       const formData = {
         method: method,
         url: e.target.url.value,
       };
-      props.handleLoading(false);
-      props.handleApiCall(formData, data.results);
-    } catch (e) {
-      console.error(e);
+      props.handleApiCall(formData);
+    } else {
+      const formData = {
+        method: 'GET',
+        url: 'http://fakethings.com/',
+      };
+      props.handleApiCall(formData);
     }
   }
   // }

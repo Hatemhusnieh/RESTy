@@ -12,13 +12,32 @@ function App() {
   const [requestParams, setRequestParams] = useState({});
   const [loading, setLoading] = useState(false);
 
-  function callApi(formData, resData) {
-    setData(resData);
-    setRequestParams(formData);
+  async function callApi(formData, resData) {
+    this.handleLoading(true);
+    try {
+      const res = await fetch(formData.url);
+      const data = await res.json();
+      setData({ data });
+      setRequestParams(formData);
+      this.handleLoading(false);
+    } catch (error) {
+      const data = {
+        count: 2,
+        results: [
+          { name: 'fake thing 1', url: 'http://fakethings.com/1' },
+          { name: 'fake thing 2', url: 'http://fakethings.com/2' },
+        ],
+      };
+      setData({ data });
+      setRequestParams(formData);
+      this.handleLoading(false);
+    }
   }
+
   function handleLoad(load) {
     setLoading(load);
   }
+
   return (
     <React.Fragment>
       <Header />
