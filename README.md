@@ -45,8 +45,8 @@
 ## Deploy, Run and Test - Version 1.2.0
 
 - [Deployed Link](https://resty-hatem.netlify.app/)
-- [Pull Request]()
-- [SandBox]()
+- [Pull Request](https://github.com/Hatemhusnieh/RESTy/pull/5)
+- [SandBox](https://codesandbox.io/s/friendly-haze-c3kry)
 
 ### Setup
 
