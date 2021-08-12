@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { useState, useEffect, useReducer } from 'react';
 import './app.scss';
+import { useState, useEffect, useReducer } from 'react';
 import Header from './components/header/Header.jsx';
 import Footer from './components/footer/Footer.jsx';
 import Form from './components/form/Form.jsx';
@@ -21,19 +21,25 @@ function App() {
   useEffect(async () => {
     if (requestParams.url) {
       if (requestBody) {
+        const data = await axios[requestParams.method](requestParams.url, JSON.parse(requestBody));
+        setData(data);
+        setLoading(false);
+        dispatch(historyAction(requestParams));
       } else {
         const data = await axios[requestParams.method](requestParams.url);
         setData(data);
         setLoading(false);
+        dispatch(historyAction(requestParams));
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [requestParams]);
 
-  async function callApi(formData) {
+  async function callApi(formData, requestBody) {
     setLoading(true);
     if (formData.url) {
+      setRequestBody(requestBody);
       setRequestParams(formData);
-      dispatch(historyAction(formData));
     } else {
       const data = {
         count: 2,

@@ -9,6 +9,10 @@
 1. download independencies by `npm i`
 1. run the app
 
+---
+
+## Lab 26
+
 ## Deploy, Run and Test - Version 1.0.0
 
 - [Pull Request](https://github.com/Hatemhusnieh/RESTy/pull/1)
@@ -26,6 +30,8 @@
 
 ---
 
+## Lab 27
+
 ## Deploy, Run and Test - Version 1.1.0
 
 - [Deployed Link](https://resty-hatem.netlify.app/)
@@ -40,7 +46,11 @@
 
 ### UML:
 
-![uml](resources/useState-Hook.jpg)
+## ![uml](resources/useState-Hook.jpg)
+
+---
+
+## Lab 28
 
 ## Deploy, Run and Test - Version 1.2.0
 
@@ -56,7 +66,11 @@
 
 ### UML:
 
-![uml](resources/useState-Hook.jpg)
+## ![uml](resources/useState-Hook.jpg)
+
+---
+
+## Lab 29
 
 ## Deploy, Run and Test - Version 1.3.0
 

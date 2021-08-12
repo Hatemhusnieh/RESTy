@@ -3,6 +3,8 @@ import './form.scss';
 
 function Form(props) {
   const [method, setMethod] = useState('get');
+  const [body, setBody] = useState('');
+  const [element, setElement] = useState(null);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -10,7 +12,19 @@ function Form(props) {
       method: method,
       url: e.target.url.value,
     };
-    props.handleApiCall(formData);
+    if (method === 'get' || method === 'delete') props.handleApiCall(formData);
+    if (method === 'post' || method === 'put') props.handleApiCall(formData, body);
+  }
+
+  function handleMethod(e) {
+    if (element) element.className = '';
+    setElement(e.target);
+    setMethod(e.target.id);
+    e.target.className = 'active';
+  }
+
+  function handleBody(e) {
+    setBody(e.target.value);
   }
 
   // if (method === 'POST') {
@@ -32,21 +46,23 @@ function Form(props) {
           <button type="submit">GO!</button>
         </label>
         <label className="methods">
-          <span id="get" onClick={() => setMethod('get')}>
+          <span id="get" onClick={(e) => handleMethod(e)}>
             GET
           </span>
-          <span id="post" onClick={() => setMethod('post')}>
+          <span id="post" onClick={(e) => handleMethod(e)}>
             POST
           </span>
-          <span id="put" onClick={() => setMethod('put')}>
+          <span id="put" onClick={(e) => handleMethod(e)}>
             PUT
           </span>
-          <span id="delete" onClick={() => setMethod('delete')}>
+          <span id="delete" onClick={(e) => handleMethod(e)}>
             DELETE
           </span>
         </label>
         <label>
-          <textarea name="body" id="body" cols="30" rows="15" placeholder="dssdg"></textarea>
+          {(method === 'post' || method === 'put') && (
+            <textarea name="body" id="body" cols="60" rows="15" placeholder="{'key': 'value'}" onChange={handleBody}></textarea>
+          )}
         </label>
       </form>
     </>
