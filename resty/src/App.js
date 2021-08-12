@@ -8,41 +8,24 @@ import Form from './components/form/Form.jsx';
 import Results from './components/results/Results.jsx';
 import History from './components/history/History';
 import { BeatLoader } from 'react-spinners';
-
-const initialState = {
-  history: [],
-};
-
-function historyReducer(state = initialState, action) {
-  const { type, payload } = action;
-  switch (type) {
-    case 'ADD-TO-HISTORY':
-      const history = [...state.history, payload.history];
-      return { history };
-    default:
-      return state;
-  }
-}
-
-function historyAction(history) {
-  return {
-    type: 'ADD-TO-HISTORY',
-    payload: { history },
-  };
-}
+import { initialState, historyReducer, historyAction } from './logic/logic';
 
 function App() {
   const [data, setData] = useState(null);
   const [requestParams, setRequestParams] = useState({});
+  const [requestBody, setRequestBody] = useState({});
   const [state, dispatch] = useReducer(historyReducer, initialState);
   const [loading, setLoading] = useState(false);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     if (requestParams.url) {
-      const data = await axios[requestParams.method](requestParams.url);
-      setData(data);
-      setLoading(false);
+      if (requestBody) {
+      } else {
+        const data = await axios[requestParams.method](requestParams.url);
+        setData(data);
+        setLoading(false);
+      }
     }
   }, [requestParams]);
 
