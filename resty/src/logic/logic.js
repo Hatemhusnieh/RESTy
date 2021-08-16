@@ -20,7 +20,7 @@ function historyAction(history) {
   };
 }
 
-module.exports = {
+export const test = {
   initialState,
   historyReducer,
   historyAction,

@@ -8,7 +8,8 @@ import Form from './components/form/Form.jsx';
 import Results from './components/results/Results.jsx';
 import History from './components/history/History';
 import { BeatLoader } from 'react-spinners';
-import { initialState, historyReducer, historyAction } from './logic/logic';
+import { test } from '../src/logic/logic';
+const { initialState, historyReducer, historyAction } = test;
 
 function App() {
   const [data, setData] = useState(null);
