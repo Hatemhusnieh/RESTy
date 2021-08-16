@@ -74,9 +74,9 @@
 
 ## Deploy, Run and Test - Version 1.3.0
 
-- [Deployed Link](https://resty-hatem.netlify.app/)
-- [Pull Request](https://github.com/Hatemhusnieh/RESTy/pull/6)
-- [SandBox-4](https://codesandbox.io/s/inspiring-lehmann-v261m)
+- [Deployed Link](https://hatem-resty.netlify.app/)
+- [Repository](https://github.com/Hatemhusnieh/RESTy.git)
+- [SandBox](https://codesandbox.io/s/resty-dwc9y)
 
 ### Setup
 
