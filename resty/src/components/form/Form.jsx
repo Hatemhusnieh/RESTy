@@ -6,7 +6,6 @@ function Form(props) {
   const [element, setElement] = useState(null);
   async function handleSubmit(e) {
     e.preventDefault();
-    // if (method === 'GET') {
     try {
       props.handleLoading(true);
       const res = await fetch(`${e.target.url.value}`);
